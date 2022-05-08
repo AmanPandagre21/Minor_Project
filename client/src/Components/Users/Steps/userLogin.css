@@ -1,0 +1,335 @@
+.firstDiv {
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color3);
+}
+
+.wrapStyle {
+  background-color: gray;
+  width: 27em;
+  height: 21em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(18, 91, 80, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* activation */
+
+.wrapperClassForActivate {
+  background-color: gray;
+  width: 34em;
+  height: 33em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 91, 80, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.textDiv .userLoginText1 {
+  text-align: center;
+  font-size: 2em;
+  color: black;
+  margin: 0.8em 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.textDiv .userLoginText2 {
+  text-align: center;
+  font-size: 1.4em;
+  color: black;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.textDiv .userLoginText3 {
+  text-align: center;
+  font-size: 0.9em;
+  color: black;
+  margin-bottom: 1em;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginForm input {
+  margin: 0.8em 0;
+  width: 20em;
+  height: 2.6em;
+  border: none;
+  border-radius: 5px;
+}
+
+.loginForm .button {
+  margin: 0.8em 0;
+  width: 12em;
+  height: 2.5em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s ease-in;
+  z-index: 1;
+  background-color: var(--color1);
+  color: var(--color3);
+}
+
+.loginForm .button:hover {
+  color: var(--color1);
+  background: var(--color3);
+  /* background: transparent; */
+}
+
+.loginForm .resendButton {
+  border: none;
+  background: transparent;
+  text-transform: capitalize;
+  border: none;
+  text-transform: capitalize;
+  background: transparent;
+  font-size: 1em;
+  color: black;
+  cursor: pointer;
+  margin: 0.2em;
+}
+
+.loginForm .resendButton:hover {
+  color: darkblue;
+}
+
+.activateUserForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: -0.2em;
+}
+
+.userAvatar {
+  width: 12em;
+  height: 12em;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.addImage {
+  width: 2.6rem;
+  height: 2.6rem;
+  background: #fff;
+  border: none;
+  color: rgb(238, 211, 91);
+  margin-left: 14rem;
+  margin-top: -3.5em;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.addImage:hover {
+  background-color: rgb(238, 211, 91);
+  color: #fff;
+}
+
+.actiavteText {
+  width: 400px;
+  /* background: white; */
+  border: 2px solid black;
+  border-radius: 0.2em;
+  margin: auto;
+}
+
+.activateButton {
+  margin: 1.5rem auto;
+  width: 12rem;
+  height: 2.5rem;
+  /* background: transparent; */
+  border: 2px solid rgb(7, 7, 7);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  position: relative;
+  transition: 0.2s ease-in;
+  z-index: 1;
+  cursor: pointer;
+  background-color: var(--color1);
+  color: var(--color3);
+}
+
+.activateButton:hover {
+  color: var(--color1);
+  background: var(--color3);
+}
+
+@media (max-width: 950px) {
+  .wrapStyle {
+    width: 450px;
+    height: 21em;
+  }
+
+  .textDiv .userLoginText1 {
+    margin: 0.9em;
+    font-size: 2em;
+  }
+
+  .textDiv .userLoginText2 {
+    font-size: 1.5em;
+  }
+
+  .textDiv .userLoginText3 {
+    font-size: 0.8em;
+  }
+
+  .loginForm input {
+    width: 20em;
+    height: 2.6em;
+  }
+
+  .loginForm .button {
+    width: 10em;
+    height: 3.5em;
+    font-size: 0.8em;
+  }
+
+  .loginForm .button:hover {
+    border: 2px solid red;
+    color: red;
+    background: transparent;
+  }
+
+  .loginForm .resendButton {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+  }
+
+  .wrapperClassForActivate {
+    width: 30em;
+    height: 35em;
+  }
+
+  .activateButton {
+    margin-top: 2.6em;
+  }
+
+  .actiavteText {
+    width: 22em;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapStyle {
+    width: 350px;
+    height: 20em;
+    /* padding:.5em; */
+  }
+
+  .textDiv .userLoginText1 {
+    margin: 0.9em;
+    font-size: 1.8em;
+  }
+
+  .textDiv .userLoginText2 {
+    font-size: 1.3em;
+  }
+
+  .textDiv .userLoginText3 {
+    margin-top: 0.3em;
+    font-size: 0.8em;
+  }
+
+  .loginForm input {
+    width: 20em;
+    height: 2.6em;
+  }
+
+  .loginForm .button {
+    width: 10em;
+    height: 3.5em;
+    font-size: 0.8em;
+  }
+
+  .loginForm .button:hover {
+    border: 2px solid red;
+    color: red;
+    background: transparent;
+  }
+
+  .loginForm .resendButton {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 400px) {
+  .wrapStyle {
+    width: 350px;
+    height: 20em;
+    /* padding:.5em; */
+  }
+
+  .textDiv .userLoginText1 {
+    margin: 0.9em;
+    font-size: 2em;
+  }
+
+  .textDiv .userLoginText2 {
+    font-size: 1.5em;
+  }
+
+  .textDiv .userLoginText3 {
+    font-size: 0.8em;
+  }
+
+  .loginForm input {
+    width: 20em;
+    height: 2.6em;
+  }
+
+  .loginForm .button {
+    width: 10em;
+    height: 3.5em;
+    font-size: 0.8em;
+  }
+
+  .loginForm .button:hover {
+    border: 2px solid red;
+    color: red;
+    background: transparent;
+  }
+
+  .loginForm .resendButton {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+  }
+}

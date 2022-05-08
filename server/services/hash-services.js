@@ -8,6 +8,10 @@ class HashServices {
       .update(data)
       .digest("hex");
   }
+
+  async generateResetPasswordHash(token) {
+    return crypto.createHash("sha256").update(token).digest("hex");
+  }
 }
 
 module.exports = new HashServices();

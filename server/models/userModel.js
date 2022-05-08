@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: false,
-      unique: [true, "Email already exists"],
+      // unique: [true, "Email already exists"],
       validate: [validator.isEmail, "Please Enter a valid Email"],
     },
 
@@ -26,16 +26,6 @@ const userSchema = new mongoose.Schema(
     },
 
     activated: { type: Boolean, required: false, default: false },
-    contacts: [
-      {
-        name: { type: String },
-        mobile: {
-          type: Number,
-          minLength: [10, "Phone number must be 10 to 12 numbers"],
-          maxLength: [12, "Phone number must be 10 to 12 numbers"],
-        },
-      },
-    ],
   },
   {
     timestamps: true,

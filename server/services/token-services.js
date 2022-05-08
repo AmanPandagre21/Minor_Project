@@ -8,7 +8,7 @@ class TokenServices {
   /* ------- Generate Tokens Function ---------*/
   generateTokens(payLoad) {
     const accessToken = jwt.sign(payLoad, accessTokenSecret, {
-      expiresIn: "1m",
+      expiresIn: "30d",
     });
 
     const refreshToken = jwt.sign(payLoad, refreshTokenSecret, {
@@ -39,6 +39,8 @@ class TokenServices {
   async verifyAccessToken(accessToken) {
     return jwt.verify(accessToken, accessTokenSecret);
   }
+
+  /* ------- Generate Reset Password Token Function ---------*/
 }
 
 module.exports = new TokenServices();

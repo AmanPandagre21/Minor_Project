@@ -25,11 +25,11 @@ router.route("/activate-user").post(authMiddleware, activateUser);
 
 router.route("/me").get(authMiddleware, profile);
 
-router.route("/update-profile").put(authMiddleware, updateProfile);
+router.route("/me/update-profile").put(authMiddleware, updateProfile);
 
-router.route("/add-contacts").post(authMiddleware, addContacts);
+// router.route("/add-contacts").post(authMiddleware, addContacts);
 
-router.route("/show-contacts").get(authMiddleware, showContacts);
+// router.route("/show-contacts").get(authMiddleware, showContacts);
 
 router.route("/logout").get(authMiddleware, logout);
 

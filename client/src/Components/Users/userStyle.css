@@ -1,0 +1,219 @@
+.formdiv {
+  width: 50vw;
+  height: auto;
+  margin-top: 0rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(80, 227, 194, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 7px; */
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputField1 {
+  background-color: #c4c4c4;
+  border: 0px solid;
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+}
+.inputField2 {
+  background-color: #c4c4c4;
+  border: 0px solid;
+  width: 760px;
+  height: 50px;
+  border-radius: 5px;
+}
+.btn {
+  background-color: #5381f4;
+  border: 0px solid;
+  height: 50px;
+  width: 300px;
+  border-radius: 37px;
+}
+.myProfile {
+  height: 80vh;
+  width: auto;
+  align-items: center;
+}
+
+.profileText {
+  width: 16rem;
+  margin-top: 0.5rem !important;
+}
+
+.profileEmailText {
+  width: 33rem;
+  margin-top: 0.5rem !important;
+}
+
+/* travel Agency css */
+.filterTA {
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 1px 5px 15px;
+  margin-left: 50px;
+  width: 300px;
+  height: 40vh;
+}
+
+.sdiv {
+  background-color: #9cc6ee;
+  color: #9cc6ee;
+  width: 30px;
+  height: 50vh;
+}
+
+.cimg {
+  width: 118px;
+  height: 122px;
+  margin-top: 18px;
+  margin-left: 35px;
+}
+.cardContent {
+  background-color: #9cc6ee;
+  width: 25vw;
+  height: 50vh;
+  margin-left: 41px;
+}
+.cardHeading {
+  text-align: center;
+  font-weight: 600;
+  font-size: 23px;
+  margin-left: 60px;
+}
+.cardContent2 {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 55px;
+}
+/* travel Agency detail */
+
+.TAdetailheader {
+  width: 500px;
+  height: 500px;
+  margin-left: 100px;
+}
+
+/* .navBtn {
+  display: block;
+  margin: 10px 2px;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+} */
+
+/* media queries */
+@media (max-width: 990px) {
+  .inputField1 {
+    width: 250px;
+    height: 50px;
+  }
+  .inputField2 {
+    width: 530px;
+    height: 50px;
+  }
+  .formdiv {
+    position: absolute;
+    width: 70vw;
+    height: auto;
+    right: 12%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 7px;
+    padding-top: 20px;
+  }
+  .filterTA {
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 5px 15px;
+    margin-left: 200px;
+    width: 300px;
+    height: 40vh;
+  }
+
+  .cardContent {
+    background-color: #9cc6ee;
+    width: 30vw;
+    height: 50vh;
+    margin-left: 41px;
+  }
+
+  .profileText {
+    width: 12rem;
+    margin-top: 0.5rem !important;
+  }
+
+  .profileEmailText {
+    width: 24rem;
+    margin-top: 0.5rem !important;
+  }
+}
+/* Driver Cards */
+.dCardsheader {
+  background: url("https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-pre-2020-813x265.jpeg");
+  height: 15vh;
+  width: 30wh;
+  background-size: 300px 500px;
+}
+@media (max-width: 600px) {
+  .inputField1 {
+    width: 200px;
+    height: 50px;
+  }
+  .inputField2 {
+    width: 200px;
+    height: 50px;
+  }
+  .formdiv {
+    position: absolute;
+    width: 80vw;
+    height: auto;
+    right: 9%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 7px;
+    padding-top: 20px;
+  }
+
+  .filterTA {
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 5px 15px;
+    margin-left: 60px;
+    width: 300px;
+    height: 40vh;
+  }
+  .cardContent {
+    background-color: #9cc6ee;
+    width: 50vw;
+    height: 50vh;
+    margin-left: 41px;
+  }
+  .TAdetailheader {
+    width: 250px;
+    height: 250px;
+
+    margin-left: 80px;
+  }
+  .profileText {
+    width: 15rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .profileEmailText {
+    width: 15rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
+@media (max-width: 400px) {
+  .inputField1 {
+    width: 200px;
+    height: 50px;
+  }
+  .inputField2 {
+    width: 200px;
+    height: 50px;
+  }
+}

@@ -8,7 +8,7 @@ const {
   storeRefreshToken,
   verifyRefreshToken,
 } = require("../services/token-services");
-
+const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/errorHandler");
 
 /* ------- Send OTP Function ---------*/
@@ -98,26 +98,27 @@ exports.verifyOTP = async (req, res, next) => {
   res.status(200).json({
     success: true,
     auth: true,
-    userDto,
+    user: userDto,
   });
 };
 
 /* ------- ACtivate User Function ---------*/
 exports.activateUser = async (req, res, next) => {
-  // cluoudinary
-
   // take details of user
-  const { name, email, avatar } = req.body;
-
-  if (!name || !email || !avatar) {
-    return next(new ErrorHandler("All fields are required", 400));
-  }
-
-  const userId = req.user._id;
-
-  //  find user
   try {
-    const userData = await User.findOne({ _id: userId });
+    const { name, email, avatar } = req.body;
+
+    if (!name && !email && !avatar) {
+      return next(new ErrorHandler("All fields are required", 400));
+    }
+
+    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "WheelzStake/users/avatar",
+      width: 200,
+      crop: "scale",
+    });
+
+    const userData = await User.findOne({ _id: req.user._id });
 
     if (!userData) {
       return next(new ErrorHandler("User Not found", 404));
@@ -126,12 +127,14 @@ exports.activateUser = async (req, res, next) => {
     userData.activated = true;
     userData.name = name;
     userData.email = email;
-    userData.avatar = avatar;
+    userData.avatar = {
+      public_id: myCloud.public_id,
+      url: myCloud.secure_url,
+    };
 
     await userData.save();
 
     const userDto = new UserDto(userData);
-
     res.status(200).json({ success: true, userDto, auth: true });
   } catch (error) {
     return next(new ErrorHandler(error.message, 500));
@@ -225,7 +228,7 @@ exports.profile = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      userDto,
+      user: userDto,
     });
   } catch (error) {
     return next(new ErrorHandler(error.message, 500));
@@ -235,7 +238,7 @@ exports.profile = async (req, res, next) => {
 /* ------- Update Profile Function ---------*/
 exports.updateProfile = async (req, res, next) => {
   try {
-    const userData = {
+    const newUserData = {
       name: req.body.name,
       email: req.body.email,
     };
@@ -246,17 +249,23 @@ exports.updateProfile = async (req, res, next) => {
       if (!user) {
         return next(new ErrorHandler("User not found", 404));
       }
+      const imageID = user.avatar.public_id;
 
-      // const imageID = user.avatar.public_id;
+      await cloudinary.v2.uploader.destroy(imageID);
 
-      userData.avatar = req.body.avatar;
+      const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "WheelzStake/users/avatar",
+        width: 200,
+        crop: "scale",
+      });
+
+      newUserData.avatar = {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      };
     }
 
-    const user = await User.findByIdAndUpdate(req.user._id, userData, {
-      new: true,
-      runValidators: true,
-      useFindAndModify: false,
-    });
+    const user = await User.findByIdAndUpdate(req.user._id, newUserData);
 
     res.status(200).json({
       success: true,
@@ -267,48 +276,48 @@ exports.updateProfile = async (req, res, next) => {
 };
 
 /* ------- Add  contacts Function ---------*/
-exports.addContacts = async (req, res, next) => {
-  try {
-    const { name, mobile } = req.body;
+// exports.addContacts = async (req, res, next) => {
+//   try {
+//     const { name, mobile } = req.body;
 
-    const userInfo = await User.findOne({ _id: req.user._id });
+//     const userInfo = await User.findOne({ _id: req.user._id });
 
-    if (!userInfo) {
-      res.status(404).json({ success: false, message: "User Not Found" });
-    }
-    const data = {
-      name: name,
-      mobile: mobile,
-    };
+//     if (!userInfo) {
+//       res.status(404).json({ success: false, message: "User Not Found" });
+//     }
+//     const data = {
+//       name: name,
+//       mobile: mobile,
+//     };
 
-    userInfo.contacts.push(data);
+//     userInfo.contacts.push(data);
 
-    await userInfo.save();
+//     await userInfo.save();
 
-    const userDto = new UserDto(userInfo);
+//     const userDto = new UserDto(userInfo);
 
-    res.status(200).json({ success: true, userDto });
-  } catch (error) {
-    return next(new ErrorHandler(error.message, 500));
-  }
-};
+//     res.status(200).json({ success: true, userDto });
+//   } catch (error) {
+//     return next(new ErrorHandler(error.message, 500));
+//   }
+// };
 
-/* ------- Show contacts Function ---------*/
-exports.showContacts = async (req, res, next) => {
-  try {
-    const userData = await User.findOne({ _id: req.user._id });
+// /* ------- Show contacts Function ---------*/
+// exports.showContacts = async (req, res, next) => {
+//   try {
+//     const userData = await User.findOne({ _id: req.user._id });
 
-    if (!userData) {
-      res.status(404).json({ success: false, message: "User Not Found" });
-    }
+//     if (!userData) {
+//       res.status(404).json({ success: false, message: "User Not Found" });
+//     }
 
-    const contacts = userData.contacts;
+//     const contacts = userData.contacts;
 
-    res.status(200).json({ success: true, contacts });
-  } catch (error) {
-    return next(new ErrorHandler(error.message, 500));
-  }
-};
+//     res.status(200).json({ success: true, contacts });
+//   } catch (error) {
+//     return next(new ErrorHandler(error.message, 500));
+//   }
+// };
 
 /* ------- LogOut Function ---------*/
 exports.logout = async (req, res, next) => {
@@ -325,9 +334,11 @@ exports.logout = async (req, res, next) => {
     res.status(200).json({
       success: true,
       user: null,
-      auth: false,
+      message: "Logged Out",
     });
   } catch (error) {
     return next(new ErrorHandler(error.message, 500));
   }
 };
+
+exports.sendRequestToDriver = async (req, res, next) => {};
