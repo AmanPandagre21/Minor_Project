@@ -68,9 +68,9 @@ const NavBar = () => {
         position="static"
         style={{
           // background: "#ff6363",
-          background: "rgb(250,245,228)",
+          background: "rgb(34,193,195)",
           background:
-            "linear-gradient(135deg, rgba(250,245,228,1) 0%, rgba(248,180,0,1) 100%)",
+            "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
         }}
       >
         <Container maxWidth="xl">
@@ -161,10 +161,14 @@ const NavBar = () => {
             <Box
               sx={{ display: { xs: "none", md: "flex" }, marginLeft: "auto" }}
             >
-              <Button onClick={home} className="navBtn">
+              <Button onClick={home} sx={{ color: "white" }} className="navBtn">
                 Home
               </Button>
-              <Button onClick={agency} className="navBtn">
+              <Button
+                onClick={agency}
+                sx={{ color: "white" }}
+                className="navBtn"
+              >
                 Travel Agency
               </Button>
               {/* <Button onClick={driver} className="navBtn">

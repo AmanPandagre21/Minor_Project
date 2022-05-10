@@ -20,8 +20,8 @@ import MailIcon from "@mui/icons-material/Mail";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import TimeToLeaveIcon from "@mui/icons-material/TimeToLeave";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import AttacherNavbar from "./attacherNavbar";
-import AttacherProfile from "./attacherProfile";
+import AgencyNavbar from "../agencyNavBar";
+import AgencyProfile from "./agencyProfile";
 import Cars from "./Cars/cars";
 import UpdatePassword from "./updatePassword/updatePassword";
 const drawerWidth = 240;
@@ -113,7 +113,7 @@ export default function MiniDrawer(props) {
     // <Box sx={{ display: 'flex', }}>
     //   <CssBaseline />
     <>
-      <AttacherNavbar />
+      <AgencyNavbar />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader
           sx={{
@@ -193,7 +193,7 @@ export default function MiniDrawer(props) {
           <Cars />
         ) : (
           <div className="formdiv">
-            <AttacherProfile />
+            <AgencyProfile />
           </div>
         )}
       </Box>

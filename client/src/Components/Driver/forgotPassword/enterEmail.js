@@ -57,7 +57,7 @@ const EnterEmail = () => {
         >
           <Grid container>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/avatar.png" className="fImg" />
+              <img src="/images/forgotPassword.png" className="fImg" />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>

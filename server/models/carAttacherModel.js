@@ -3,7 +3,7 @@ const validator = require("validator");
 
 const carAttacherSchema = new mongoose.Schema(
   {
-    ower_name: { type: String },
+    name: { type: String },
     email: {
       type: String,
       required: true,

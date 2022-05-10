@@ -12,6 +12,7 @@ import NavBar from "../HomePage/navbar/navBar";
 import DriverNavBar from "./profiles/driverNavbar";
 import AttacherNavBar from "../CarAttacher/profiles/attacherNavbar";
 import { useDispatch, useSelector } from "react-redux";
+import "../TravelAgency/taReg.css";
 
 const Dregistration = () => {
   const { user, isAuth } = useSelector((state) => state.users);
@@ -41,12 +42,12 @@ const Dregistration = () => {
               sm: "90vw",
             },
             height: {
-              md: "90vh",
-              sm: "80vh",
+              md: "auto",
+              sm: "auto",
             },
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: "50px",
+            marginTop: "10rem",
             borderRadius: "6px",
             boxShadow: {
               md: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
@@ -57,7 +58,7 @@ const Dregistration = () => {
         >
           <Grid container>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/User.png" className="cimg" />
+              <img src="/images/DriverReg.png" className="cimgs" />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>

@@ -103,151 +103,146 @@ const Cregform = () => {
             alignItems: "center",
           }}
         >
+          <Typography component="h1" sx={{ textAlign: "center" }} variant="h5">
+            Sign up
+          </Typography>
           <Box
             component="form"
             noValidate
             encType="multipart/form-data"
             onSubmit={handleSubmit}
           >
-            <Typography
-              component="h1"
-              sx={{ textAlign: "center" }}
-              variant="h5"
-            >
-              Sign up
-            </Typography>
+            {/* <Grid container spacing={2} sx={{ mt: 2 }}> */}
+            <Avatar
+              alt={name}
+              src={previewAvatar}
+              sx={{
+                width: {
+                  md: "100px",
+                  sm: "100px",
+                  xs: "150px",
+                },
+                height: {
+                  md: "100px",
+                  sm: "100px",
+                  xs: "150px",
+                },
+                marginLeft: {
+                  md: "auto",
+                  sm: "auto",
+                  xs: "auto",
+                  sx: 18,
+                },
+                marginRight: {
+                  md: "auto",
+                  sm: "auto",
+                  xs: "auto",
+                  sx: 18,
+                },
 
-            <Grid container spacing={2} sx={{ mt: 2 }}>
-              <Avatar
-                alt={name}
-                src={previewAvatar}
-                sx={{
-                  width: {
-                    md: "100px",
-                    sm: "100px",
-                    xs: "150px",
-                  },
-                  height: {
-                    md: "100px",
-                    sm: "100px",
-                    xs: "150px",
-                  },
-                  marginLeft: {
-                    md: "auto",
-                    sm: "auto",
-                    xs: "auto",
-                    sx: 18,
-                  },
-                  marginRight: {
-                    md: "auto",
-                    sm: "auto",
-                    xs: "auto",
-                    sx: 18,
-                  },
+                marginTop: "10px",
+              }}
+            />
 
-                  marginTop: "10px",
-                }}
+            <Grid item md={6} sm={6} xs={12}>
+              <input
+                id="icon-button-file"
+                type="file"
+                name="avatar"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={attacherProfileDataChange}
               />
-
-              <Grid item md={6} sm={6} xs={12}>
-                <input
-                  id="icon-button-file"
-                  type="file"
-                  name="avatar"
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  onChange={attacherProfileDataChange}
-                />
-                <label htmlFor="icon-button-file">
-                  <IconButton
-                    color="primary"
-                    aria-label="upload picture"
-                    component="span"
+              <label htmlFor="icon-button-file">
+                <IconButton
+                  color="primary"
+                  aria-label="upload picture"
+                  component="span"
+                  sx={{
+                    marginLeft: "355px",
+                    size: "500px",
+                  }}
+                >
+                  <CameraAltIcon
                     sx={{
-                      marginLeft: "355px",
-                      size: "500px",
+                      fontSize: "40px",
                     }}
-                  >
-                    <CameraAltIcon
-                      sx={{
-                        fontSize: "40px",
-                      }}
-                    />
-                  </IconButton>
-                </label>
-              </Grid>
+                  />
+                </IconButton>
+              </label>
+            </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  label="Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  type="number"
-                  fullWidth
-                  id="phoneno"
-                  name="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  label="phoneno"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              {/* <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="given-name"
+                name="name"
+                required
+                fullWidth
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                label="Name"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                type="number"
+                fullWidth
+                id="phoneno"
+                name="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                label="phoneno"
+                autoComplete="family-name"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                autoComplete="new-password"
+              />
+            </Grid>
+            {/* <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
                     label="I want to receive inspiration, marketing promotions and updates via email."
                   />
                 </Grid> */}
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="confirmpassword"
-                  label="Confirm Password"
-                  type="password"
-                  id="cpassword"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  autoComplete="new-password"
-                />
-              </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="confirmpassword"
+                label="Confirm Password"
+                type="password"
+                id="cpassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                autoComplete="new-password"
+              />
             </Grid>
+            {/* </Grid> */}
             <Button
               type="submit"
               fullWidth

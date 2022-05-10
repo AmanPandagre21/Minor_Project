@@ -63,7 +63,7 @@ const TCard = ({ agency }) => {
                   fontSize: "17px",
                 }}
               >
-                <Rating name="disabled" value={value} disabled />
+                <Rating name="diabled" value={agency.ratings} readOnly />
               </Typography>
 
               <Typography
@@ -107,7 +107,10 @@ const TCard = ({ agency }) => {
               >
                 {agency.city} ,({agency.state})
               </Typography>
-              <Link to={`/agencies/${agency._id}`}>
+              <Link
+                to={`/agencies/details/${agency._id}`}
+                sx={{ TextDecoration: "none" }}
+              >
                 <Button
                   variant="contained"
                   color="error"

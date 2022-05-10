@@ -143,7 +143,7 @@ exports.profile = async (req, res, next) => {
 
 exports.drivers = async (req, res, next) => {
   try {
-    const resultPerPage = 2;
+    const resultPerPage = 25;
     // filteration searching and pagination
     const driverFeature = new Features(
       Driver.find({ isDriverVerified: true }),

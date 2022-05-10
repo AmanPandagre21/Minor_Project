@@ -8,11 +8,11 @@ import "./style.css";
 const Home = () => {
   return (
     <>
-      <Container maxWidth={false}>
-        <Header />
-        <OurServices />
-        <Footer />
-      </Container>
+      {/* <Container maxWidth={false}> */}
+      <Header />
+      <OurServices />
+      <Footer />
+      {/* </Container> */}
     </>
   );
 };

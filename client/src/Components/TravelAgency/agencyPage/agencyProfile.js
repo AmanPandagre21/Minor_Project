@@ -34,18 +34,18 @@ const Copyright = (props) => {
   );
 };
 
-const attacherProfile = () => {
-  const { attacher } = useSelector((state) => state.attacherAuth);
+const agencyProfile = () => {
+  const { agency } = useSelector((state) => state.agencyAuth);
   // const { status, isUpdated } = useSelector((state) => state.drivers);
   // const { type, message } = status;
   const dispatch = useDispatch();
 
-  const [name, setName] = React.useState(attacher.name);
-  const [email, setEmail] = React.useState(attacher.email);
-  const [phone, setPhone] = React.useState(attacher.phone);
-  const [city, setCity] = React.useState(attacher.city);
+  const [name, setName] = React.useState(agency.name);
+  const [email, setEmail] = React.useState(agency.email);
+  const [phone, setPhone] = React.useState(agency.phone);
+  const [city, setCity] = React.useState(agency.city);
   const [avatar, setAvatar] = React.useState("");
-  const [avatarPreview, setAvatarPreview] = React.useState(attacher.avatar.url);
+  const [avatarPreview, setAvatarPreview] = React.useState(agency.avatar.url);
 
   const imageChangeHandler = (e) => {
     const reader = new FileReader();
@@ -205,7 +205,7 @@ const attacherProfile = () => {
                     textAlign: "center",
                   }}
                 >
-                  {attacher && attacher.name}
+                  {agency && agency.name}
                 </Typography>
               </Grid>
 
@@ -257,7 +257,7 @@ const attacherProfile = () => {
                   disabled
                   label="state"
                   onChange={(e) => setCity(e.target.value)}
-                  value={attacher && attacher.state}
+                  value={agency && agency.state}
                   id="city"
                 />
               </Grid>
@@ -296,4 +296,4 @@ const attacherProfile = () => {
     </ThemeProvider>
   );
 };
-export default attacherProfile;
+export default agencyProfile;

@@ -52,7 +52,7 @@ const Drivers = () => {
       ) : (
         <NavBar />
       )}
-      <Grid container>
+      <Grid container sx={{ marginTop: "4rem" }}>
         <Grid item md={3} sm={12} xs={12}>
           <div className="filterTA">
             <Typography

@@ -50,7 +50,14 @@ const NavBar = () => {
 
   return (
     <>
-      <AppBar elevation={0} sx={{ background: "transparent" }}>
+      <AppBar
+        elevation={0}
+        sx={{
+          background: "rgb(34,193,195)",
+          background:
+            "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
+        }}
+      >
         <Toolbar>
           <Tabs>
             <Tab
@@ -61,6 +68,7 @@ const NavBar = () => {
                 fontWeight: "400",
                 fontSize: "24px",
                 marginLeft: "130px",
+                color: "white",
               }}
               elevation={0}
             />
@@ -75,14 +83,14 @@ const NavBar = () => {
                 navigate("/")
                 <Tab
                   label="Home"
-                  sx={{ fontWeight: "700", color: "black" }}
+                  sx={{ fontWeight: "700", color: "white" }}
                   onClick={() => {
                     navigate("/");
                   }}
                 />
                 <Tab
                   label="Travel Agencies"
-                  sx={{ fontWeight: "700", color: "black" }}
+                  sx={{ fontWeight: "700", color: "white" }}
                   onClick={() => {
                     navigate("/agencies");
                   }}
@@ -90,7 +98,7 @@ const NavBar = () => {
                 navigate("/drivers")
                 <Tab
                   label="Drivers"
-                  sx={{ fontWeight: "700", color: "black" }}
+                  sx={{ fontWeight: "700", color: "white" }}
                   onClick={() => {
                     navigate("/drivers");
                   }}
@@ -131,21 +139,18 @@ const NavBar = () => {
                   </>
                 ) : (
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     onClick={toggleModal}
                     sx={{
-                      width: "18em",
+                      width: "14em",
                       height: "2.8em",
                       top: "4px",
                       background: "rgb(250,245,228)",
-                      background:
-                        "linear-gradient(135deg, rgba(250,245,228,1) 0%, rgba(248,180,0,1) 100%)",
-                      fontSize: ".9em",
-                      letterSpacing: ".1em",
+                      fontSize: ".8em",
                       wordSpacing: ".1em",
                       fontWeight: "600",
                       color: "black",
-                      borderRadius: "14px",
+                      borderRadius: "12px",
                     }}
                   >
                     Login / Registeration

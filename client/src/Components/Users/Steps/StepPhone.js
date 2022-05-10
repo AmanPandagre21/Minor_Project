@@ -17,7 +17,7 @@ const StepPhone = ({ onNext }) => {
     e.preventDefault();
 
     if (!number) return;
-    const num = 91 + number;
+    const num = `+91${number}`;
     dispatch(send_otp({ phone: num }));
     onNext();
   };

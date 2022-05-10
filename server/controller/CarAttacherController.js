@@ -382,13 +382,13 @@ exports.addCars = async (req, res, next) => {
       return next(new ErrorHandler("please fill all fields", 400));
     }
 
-    const myCloud = cloudinary.v2.uploader.upload(carImage, {
+    const car = await CarAttacher.findById(req.carAttacher._id);
+
+    const myCloudcar = await cloudinary.v2.uploader.upload(carImage, {
       folder: "WheelzStake/attacher/car",
       width: 200,
       crop: "scale",
     });
-
-    const car = await CarAttacher.findById(req.carAttacher._id);
 
     const data = {
       carName,
@@ -399,8 +399,8 @@ exports.addCars = async (req, res, next) => {
       pricePerKm,
       fuelType,
       carImage: {
-        public_id: myCloud.public_id,
-        url: myCloud.secure_url,
+        public_id: myCloudcar.public_id,
+        url: myCloudcar.secure_url,
       },
     };
 
@@ -487,7 +487,7 @@ exports.deleteCar = async (req, res, next) => {
       return next(new ErrorHandler("Car not found", 400));
     }
 
-    const imageID = cars.carDetails[index].carImage.public_id;
+    const imageID = car.carDetails[index].carImage.public_id;
     await cloudinary.v2.uploader.destroy(imageID);
 
     car.carDetails.splice(index, 1);

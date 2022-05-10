@@ -4,13 +4,34 @@ import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 // import C1Img from '../../../Images/carAttach2.png'
 import theme from "../../theme";
-// import Rform from '../TravelAgency/registrationForm'
-// import Cregform from './CregistrationForm'
-// import CAImg from '../../../Images/carAttach1.png'
 import CarDetailsForm from "./cardetailForm";
+import UserNavBar from "../Users/userNavBar";
+import AgencyNavBar from "../TravelAgency/agencyNavBar";
+import NavBar from "../HomePage/navbar/navBar";
+import DriverNavBar from "../Driver/profiles/driverNavbar";
+import AttacherNavBar from "./profiles/attacherNavbar";
+import { useDispatch, useSelector } from "react-redux";
+
 const Cardetails = () => {
+  const { user, isAuth } = useSelector((state) => state.users);
+  const { agency, isAgencyAuth } = useSelector((state) => state.agencyAuth);
+  const { attacher, isAttacheryAuth } = useSelector(
+    (state) => state.attacherAuth
+  );
+  const { isDriverAuth } = useSelector((state) => state.driverAuth);
   return (
     <>
+      {isAuth === true && user.activated === true ? (
+        <UserNavBar />
+      ) : isAgencyAuth === true && agency.isAgencyActivated === true ? (
+        <AgencyNavBar />
+      ) : isDriverAuth === true ? (
+        <DriverNavBar />
+      ) : isAttacheryAuth === true && attacher.isAttacherActivated === true ? (
+        <AttacherNavBar />
+      ) : (
+        <NavBar />
+      )}
       <ThemeProvider theme={theme}>
         <Box
           sx={{
@@ -19,8 +40,8 @@ const Cardetails = () => {
               sm: "100vw",
             },
             height: {
-              md: "80vh",
-              sm: "80vh",
+              md: "auto",
+              sm: "auto",
             },
             marginLeft: "auto",
             marginRight: "auto",
@@ -38,7 +59,7 @@ const Cardetails = () => {
               <CarDetailsForm />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              {/* <img src="" className="cimg2" /> */}
+              <img src="/images/ActivationImg.png" className="cimg2" />
             </Grid>
           </Grid>
         </Box>

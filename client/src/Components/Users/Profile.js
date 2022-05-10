@@ -183,8 +183,9 @@ const Profile = () => {
               </div>
             </Grid>
 
-            <button
+            <Button
               variant="contained"
+              type="submit"
               sx={{
                 background: "#5381F4",
                 border: "0px solid",
@@ -205,7 +206,7 @@ const Profile = () => {
               }}
             >
               Edit
-            </button>
+            </Button>
           </Grid>
         </form>
       </ThemeProvider>

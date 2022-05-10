@@ -35,7 +35,7 @@ const TADetails = () => {
   const { agency, status, isAgencyAuth } = useSelector(
     (state) => state.agencyAuth
   );
-  const { attacher, isAttacheryAuth } = useSelector(
+  const { attacher, isAttacherAuth } = useSelector(
     (state) => state.attacherAuth
   );
   const { driver, isDriverAuth } = useSelector((state) => state.driverAuth);
@@ -54,7 +54,7 @@ const TADetails = () => {
         <AgencyNavBar />
       ) : isDriverAuth === true ? (
         <DriverNavBar />
-      ) : isAttacheryAuth === true && attacher.isAttacherActivated === true ? (
+      ) : isAttacherAuth === true && attacher.isAttacherActivated === true ? (
         <AttacherNavBar />
       ) : (
         <NavBar />
@@ -172,7 +172,7 @@ const TADetails = () => {
         {/*cards....................  */}
         <Grid container>
           <Grid item md={3} sm={12}>
-            <div className="filterTA">
+            {/* <div className="filterTA">
               <Typography
                 varient="h1"
                 sx={{
@@ -220,10 +220,10 @@ const TADetails = () => {
                   marks
                   min={1}
                   max={5}
-                />
-                {/* <Slider defaultValue={30} step={10} marks min={10} max={110} disabled /> */}
-              </Box>
-            </div>
+                /> */}
+            {/* <Slider defaultValue={30} step={10} marks min={10} max={110} disabled /> */}
+            {/* </Box>  */}
+            {/* </div> */}
           </Grid>
           <Grid container md={9}>
             {agency &&

@@ -158,7 +158,7 @@ exports.showAgencyProfile = async (req, res, next) => {
 /* -------  Show All travel agencies ---------*/
 exports.showAllTravelAgencies = async (req, res, next) => {
   try {
-    const resultperpage = 2;
+    const resultperpage = 25;
 
     const agencyFeatures = new Features(TravelAgency.find(), req.query)
       .filter()
@@ -381,11 +381,11 @@ exports.addCarAndDriver = async (req, res, next) => {
       seats,
       pricePerKm,
       fuelType,
-      driverName,
-      email,
-      phone,
+      // driverName,
+      // email,
+      // phone,
       carImage,
-      driverAvatar,
+      // driverAvatar,
     } = req.body;
 
     if (
@@ -396,28 +396,28 @@ exports.addCarAndDriver = async (req, res, next) => {
       !seats &&
       !pricePerKm &&
       !fuelType &&
-      !driverName &&
-      !email &&
-      !phone &&
-      !carImage &&
-      !driverAvatar
+      // !driverName &&
+      // !email &&
+      // !phone &&
+      !carImage
+      // !driverAvatar
     ) {
       return next(new ErrorHandler("please fill all fields", 400));
     }
 
     const agency = await TravelAgency.findById(req.agency._id);
 
-    const myCloudcar = await cloudinary.v2.uploader.upload(avatar, {
+    const myCloudcar = await cloudinary.v2.uploader.upload(carImage, {
       folder: "WheelzStake/agency/car",
       width: 200,
       crop: "scale",
     });
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "WheelzStake/agency/driver",
-      width: 200,
-      crop: "scale",
-    });
+    // const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+    //   folder: "WheelzStake/agency/driver",
+    //   width: 200,
+    //   crop: "scale",
+    // });
 
     const data = {
       cars: {
@@ -433,12 +433,6 @@ exports.addCarAndDriver = async (req, res, next) => {
           url: myCloudcar.secure_url,
         },
       },
-      driver: {
-        driverName,
-        email,
-        phone,
-        driverAvatar: { public_id: myCloud.public_id, url: myCloud.secure_url },
-      },
     };
 
     agency.carsAndDrivers.push(data);
@@ -447,6 +441,7 @@ exports.addCarAndDriver = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
+      message: "Car Added Successfully",
       agency,
     });
   } catch (e) {
@@ -549,11 +544,11 @@ exports.deleteCarAndDriver = async (req, res, next) => {
       return next(new ErrorHandler("Car not found", 400));
     }
 
-    const driverImageID =
-      agency.carsAndDrivers[index].driver.driverAvatar.public_id;
+    // const driverImageID =
+    //   agency.carsAndDrivers[index].driver.driverAvatar.public_id;
     const carImageID = agency.carsAndDrivers[index].cars.carImage.public_id;
 
-    await cloudinary.v2.uploader.destroy(driverImageID);
+    // await cloudinary.v2.uploader.destroy(driverImageID);
     await cloudinary.v2.uploader.destroy(carImageID);
 
     agency.carsAndDrivers.splice(index, 1);

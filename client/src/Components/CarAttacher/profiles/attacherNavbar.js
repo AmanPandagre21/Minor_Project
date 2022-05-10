@@ -18,14 +18,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "../../Users/userStyle.css";
 import { useNavigate } from "react-router-dom";
-import { logout_driver } from "../../../Slices/DriverSlices/driverAuthSlice";
+import { logout_attacher } from "../../../Slices/CarAttacherSlices/attacherAuthSlice";
 
 // const pages = ["Home", "Travel Agency", "Drivers"];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { driver } = useSelector((state) => state.driverAuth);
+  const { attacher } = useSelector((state) => state.attacherAuth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -55,10 +55,10 @@ const NavBar = () => {
   //     navigate("/drivers");
   //   };
   const accountHandler = () => {
-    navigate("/driver/account");
+    navigate("/attacher/account");
   };
   const logoutHandler = () => {
-    dispatch(logout_driver());
+    dispatch(logout_attacher());
     toast.success("Logout Successfully");
   };
 
@@ -68,9 +68,9 @@ const NavBar = () => {
         position="static"
         style={{
           // background: "#ff6363",
-          background: "rgb(250,245,228)",
+          background: "rgb(34,193,195)",
           background:
-            "linear-gradient(135deg, rgba(250,245,228,1) 0%, rgba(248,180,0,1) 100%)",
+            "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
         }}
       >
         <Container maxWidth="xl">
@@ -161,10 +161,14 @@ const NavBar = () => {
             <Box
               sx={{ display: { xs: "none", md: "flex" }, marginLeft: "auto" }}
             >
-              <Button onClick={home} className="navBtn">
+              <Button onClick={home} sx={{ color: "white" }} className="navBtn">
                 Home
               </Button>
-              <Button onClick={agency} className="navBtn">
+              <Button
+                onClick={agency}
+                sx={{ color: "white" }}
+                className="navBtn"
+              >
                 Travel Agency
               </Button>
               {/* <Button onClick={driver} className="navBtn">
@@ -175,8 +179,8 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt={driver.name} src={driver.avatar.url} />{" "}
-                  <h4 style={{ marginLeft: "3px" }}>{driver.name}</h4>
+                  <Avatar alt={attacher.name} src={attacher.avatar.url} />{" "}
+                  <h4 style={{ marginLeft: "3px" }}>{attacher.name}</h4>
                 </IconButton>
               </Tooltip>
               <Menu

@@ -44,6 +44,16 @@ export const agencyProfileSlice = createSlice({
       state.reviews = action.payload;
     },
 
+    addCar(state, action) {
+      state.setMessage = action.payload;
+      state.isUpdated = true;
+    },
+
+    deleteCar(state, action) {
+      state.setMessage = action.payload;
+      state.isUpdated = true;
+    },
+
     resetMessage(state, action) {
       state.setMessage = action.payload;
     },
@@ -71,11 +81,11 @@ export const {
 export default agencyProfileSlice.reducer;
 
 // get all agencies
-export function get_all_agencies_profile() {
+export function get_all_agencies_profile(keyword = "", ratings = 0) {
   return async function getAllAgenciesProfileThunk(dispatch, getState) {
     dispatch(setStatus({ type: STATUES.LOADING, message: "Loading" }));
     try {
-      const { data } = await api.get("/agency/travel_agencies");
+      const { data } = await api.get(`/agency/travel_agencies`);
       dispatch(getALlAgencies(data.agencyDetails));
       dispatch(setStatus({ type: STATUES.IDLE, message: "Agency Profiles" }));
     } catch (error) {
@@ -165,7 +175,7 @@ export function delete_agency_car(id) {
       dispatch(
         setStatus({
           type: STATUES.IDLE,
-          message: "car Added Successfully",
+          message: "car deleted Successfully",
         })
       );
     } catch (error) {

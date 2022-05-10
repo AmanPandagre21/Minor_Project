@@ -6,10 +6,33 @@ import { Box } from "@mui/system";
 import theme from "../../theme";
 import Tloginform from "./CloginForm";
 import Cloginform from "./CloginForm";
+import UserNavBar from "../Users/userNavBar";
+import AgencyNavBar from "../TravelAgency/agencyNavBar";
+import NavBar from "../HomePage/navbar/navBar";
+import DriverNavBar from "../Driver/profiles/driverNavbar";
+import AttacherNavBar from "./profiles/attacherNavbar";
+import { useDispatch, useSelector } from "react-redux";
 
 const CLogin = () => {
+  const { user, isAuth } = useSelector((state) => state.users);
+  const { agency, isAgencyAuth } = useSelector((state) => state.agencyAuth);
+  const { attacher, isAttacheryAuth } = useSelector(
+    (state) => state.attacherAuth
+  );
+  const { isDriverAuth } = useSelector((state) => state.driverAuth);
   return (
     <>
+      {isAuth === true && user.activated === true ? (
+        <UserNavBar />
+      ) : isAgencyAuth === true && agency.isAgencyActivated === true ? (
+        <AgencyNavBar />
+      ) : isDriverAuth === true ? (
+        <DriverNavBar />
+      ) : isAttacheryAuth === true && attacher.isAttacherActivated === true ? (
+        <AttacherNavBar />
+      ) : (
+        <NavBar />
+      )}
       <ThemeProvider theme={theme}>
         <Box
           sx={{
@@ -18,12 +41,12 @@ const CLogin = () => {
               sm: "90vw",
             },
             height: {
-              md: "70vh",
-              sm: "80vh",
+              md: "auto",
+              sm: "auto",
             },
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: "50px",
+            marginTop: "10rem",
             borderRadius: "6px",
             boxShadow: {
               md: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
@@ -34,7 +57,7 @@ const CLogin = () => {
         >
           <Grid container>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/User.png" className="cimg" />
+              <img src="/images/LoginImg.png" className="cimgs" />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>

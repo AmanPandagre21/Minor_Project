@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./Components/TravelAgency/taReg.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Components/HomePage/Home";
 import AuthSteps from "./Components/Users/Auth/AuthSteps.js";
@@ -22,6 +23,7 @@ import Registration from "./Components/TravelAgency/registration";
 import TaActivation from "./Components/TravelAgency/taActivation";
 import AgencyProfile from "./Components/TravelAgency/agencyProfile";
 import DriverDrawer from "./Components/Driver/profiles/drawer";
+import AttacherDrawer from "./Components/CarAttacher/profiles/drawer";
 import { get_driver_profile } from "./Slices/DriverSlices/driverAuthSlice";
 // ------------------------------
 import EnterEmail from "./Components/Driver/forgotPassword/enterEmail";
@@ -33,6 +35,7 @@ import TADetails from "./Components/TravelAgency/agencyPage/TADetails";
 import { get_attacher_profile } from "./Slices/CarAttacherSlices/attacherAuthSlice";
 import Profile from "./Components/CarAttacher/profile";
 import Header from "./Components/HomePage/header";
+import AgencyDrawer from "./Components/TravelAgency/agencyPage/drawer";
 
 function App() {
   const { isAuth, user } = useSelector((state) => state.users);
@@ -95,8 +98,13 @@ function App() {
             }
           ></Route>
           <Route exact path="/drivers" element={<Drivers />}></Route>
-          <Route exact path="/agencies" element={<TravelAgency />}></Route>
-          <Route exact path="/agencies/:id" element={<TADetails />}></Route>
+          <Route path="/agencies" element={<TravelAgency />}></Route>
+          <Route path="/agencies/:keyword" element={<TravelAgency />}></Route>
+          <Route
+            exact
+            path="/agencies/details/:id"
+            element={<TADetails />}
+          ></Route>
           {/* agency Routes */}
           <Route exact path="/agency/login" element={<Login />}></Route>
           <Route
@@ -113,7 +121,7 @@ function App() {
               ) : isAgencyAuth && !agency.isAgencyActivated ? (
                 <TaActivation />
               ) : (
-                <AgencyProfile />
+                <AgencyDrawer />
               )
             }
           ></Route>
@@ -126,7 +134,7 @@ function App() {
               ) : isAgencyAuth && !agency.isAgencyActivated ? (
                 <TaActivation />
               ) : (
-                <AgencyProfile />
+                <AgencyDrawer />
               )
             }
           ></Route>
@@ -169,7 +177,20 @@ function App() {
               ) : isAttacherAuth && !attacher.isAttacherActivated ? (
                 <CarActivation />
               ) : (
-                <Profile />
+                <AttacherDrawer />
+              )
+            }
+          ></Route>
+          <Route
+            exact
+            path="/attacher/account"
+            element={
+              !isAttacherAuth ? (
+                <Clogin />
+              ) : isAttacherAuth && !attacher.isAttacherActivated ? (
+                <CarActivation />
+              ) : (
+                <AttacherDrawer />
               )
             }
           ></Route>

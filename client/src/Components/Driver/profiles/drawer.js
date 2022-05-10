@@ -114,7 +114,13 @@ export default function MiniDrawer(props) {
     <>
       <DriverNavbar />
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader sx={{ background: "#C4C4C4" }}>
+        <DrawerHeader
+          sx={{
+            background: "rgb(34,193,195)",
+            background:
+              "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
+          }}
+        >
           <Typography
             variant="h6"
             noWrap

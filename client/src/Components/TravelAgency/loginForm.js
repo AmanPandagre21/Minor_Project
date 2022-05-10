@@ -160,6 +160,13 @@ const Tloginform = () => {
                 </Link>
               </Grid>
             </Grid>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/agency/password/forgot" variant="body2">
+                  Forgot Password
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         {/* <Copyright sx={{ mt: 5 }} /> */}

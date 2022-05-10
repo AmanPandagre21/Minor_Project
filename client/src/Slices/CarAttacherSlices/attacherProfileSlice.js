@@ -138,11 +138,11 @@ export function update_attacher_profile(newAttacherData) {
   };
 }
 
-export function add_attacher_car(carData) {
+export function add_attacher_car(formData) {
   return async function addAttacherCarThunk(dispatch, getState) {
     dispatch(setStatus({ type: STATUES.LOADING, message: "Loading" }));
     try {
-      const { data } = await api.put("/car/cars/add", carData, {
+      const { data } = await api.put("/car/cars/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       dispatch(addCar(data.message));

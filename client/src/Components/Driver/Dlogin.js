@@ -40,12 +40,12 @@ const DLogin = () => {
               sm: "90vw",
             },
             height: {
-              md: "70vh",
-              sm: "80vh",
+              md: "auto",
+              sm: "auto",
             },
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: "50px",
+            marginTop: "10rem",
             borderRadius: "6px",
             boxShadow: {
               md: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
@@ -56,7 +56,7 @@ const DLogin = () => {
         >
           <Grid container>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/User.png" className="cimg" />
+              <img src="/images/LoginImg.png" className="cimgs" />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>

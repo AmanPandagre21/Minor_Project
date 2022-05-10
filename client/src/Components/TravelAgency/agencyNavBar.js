@@ -55,7 +55,7 @@ const NavBar = () => {
     navigate("/drivers");
   };
   const accountHandler = () => {
-    navigate("/account");
+    navigate("/agency/account");
   };
   const logoutHandler = () => {
     dispatch(logout_agency());
@@ -68,9 +68,9 @@ const NavBar = () => {
         position="static"
         style={{
           // background: "#ff6363",
-          background: "rgb(250,245,228)",
+          background: "rgb(34,193,195)",
           background:
-            "linear-gradient(135deg, rgba(250,245,228,1) 0%, rgba(248,180,0,1) 100%)",
+            "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
         }}
       >
         <Container maxWidth="xl">
@@ -132,9 +132,9 @@ const NavBar = () => {
                 <MenuItem onClick={home}>
                   <Typography textAlign="center">Home</Typography>
                 </MenuItem>
-                <MenuItem onClick={attachers}>
+                {/* <MenuItem onClick={attachers}>
                   <Typography textAlign="center">Car Attachers</Typography>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={driver}>
                   <Typography textAlign="center">Driver</Typography>
                 </MenuItem>
@@ -159,15 +159,22 @@ const NavBar = () => {
               WHEELZSTACK
             </Typography>
             <Box
-              sx={{ display: { xs: "none", md: "flex" }, marginLeft: "auto" }}
+              sx={{
+                display: { xs: "none", md: "flex", color: "white" },
+                marginLeft: "auto",
+              }}
             >
-              <Button onClick={home} className="navBtn">
+              <Button onClick={home} sx={{ color: "white" }} className="navBtn">
                 Home
               </Button>
-              <Button onClick={attachers} className="navBtn">
+              {/* <Button onClick={attachers} className="navBtn">
                 Car Attachers
-              </Button>
-              <Button onClick={driver} className="navBtn">
+              </Button> */}
+              <Button
+                onClick={driver}
+                sx={{ color: "white" }}
+                className="navBtn"
+              >
                 Drivers
               </Button>
             </Box>

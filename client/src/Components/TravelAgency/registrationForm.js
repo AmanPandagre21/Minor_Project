@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
 import { useDispatch, useSelector } from "react-redux";
 import { agency_registration } from "../../Slices/TravelAgenciesSlices/travelAuthSlice";
+import { useNavigate } from "react-router-dom";
 
 const Copyright = (props) => {
   return (
@@ -41,9 +42,10 @@ const Rform = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { status } = useSelector((state) => state.agencyAuth);
+  const { status, isAgencyAuth } = useSelector((state) => state.agencyAuth);
   const { type, message } = status;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const agencyProfileDataChange = (e) => {
     if (e.target.name === "avatar") {
@@ -77,6 +79,9 @@ const Rform = () => {
   useEffect(() => {
     if (type === "error") {
       toast.error(message);
+    }
+    if (isAgencyAuth) {
+      navigate("/agency/activate");
     }
   }, [toast, type, message]);
 

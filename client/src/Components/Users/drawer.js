@@ -115,7 +115,13 @@ export default function MiniDrawer(props) {
     <>
       <UserNavBar />
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader sx={{ background: "#C4C4C4" }}>
+        <DrawerHeader
+          sx={{
+            background: "rgb(34,193,195)",
+            background:
+              "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
+          }}
+        >
           <Typography
             variant="h6"
             noWrap
@@ -144,7 +150,8 @@ export default function MiniDrawer(props) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["My Profile", "Bookings", "Driver"].map((text, index) => (
+          {/* , "Bookings" */}
+          {["My Profile"].map((text, index) => (
             <ListItemButton
               key={text}
               sx={{
@@ -161,13 +168,13 @@ export default function MiniDrawer(props) {
                   justifyContent: "center",
                 }}
               >
-                {index == 0 ? (
-                  <AccountCircleIcon />
-                ) : index == 1 ? (
+                {/* {index == 0 ? ( */}
+                <AccountCircleIcon />
+                {/* ) : index == 1 ? (
                   <TimeToLeaveIcon />
                 ) : (
-                  <PeopleAltIcon />
-                )}
+                  <PeopleAltIcon /> */}
+                {/* )} */}
               </ListItemIcon>
               <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -177,16 +184,14 @@ export default function MiniDrawer(props) {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} className="drawerBox">
         <DrawerHeader />
-        {component === "Driver" ? (
-          <DriverList />
-        ) : component === "Bookings" ? (
+        {/* {component === "Bookings" ? (
           <BookingList />
-        ) : (
-          <div className="formdiv">
-            <Profile />
-            {/* <PEdit /> */}
-          </div>
-        )}
+        ) : ( */}
+        <div className="formdiv">
+          <Profile />
+          {/* <PEdit /> */}
+        </div>
+        {/* )}   */}
       </Box>
     </>
     // </Box>

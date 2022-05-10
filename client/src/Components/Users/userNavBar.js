@@ -68,9 +68,9 @@ const NavBar = () => {
         position="static"
         style={{
           // background: "#ff6363",
-          background: "rgb(250,245,228)",
+          background: "rgb(34,193,195)",
           background:
-            "linear-gradient(135deg, rgba(250,245,228,1) 0%, rgba(248,180,0,1) 100%)",
+            "linear-gradient(0deg, rgba(34,193,195,1) 50%, rgba(40,144,158,1) 100%)",
         }}
       >
         <Container maxWidth="xl">
@@ -176,7 +176,7 @@ const NavBar = () => {
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt={user.name} src={user.avatar.url} />{" "}
-                  <h4 style=  {{ marginLeft: "3px" }}>{user.name}</h4>
+                  <h4 style={{ marginLeft: "3px" }}>{user.name}</h4>
                 </IconButton>
               </Tooltip>
               <Menu

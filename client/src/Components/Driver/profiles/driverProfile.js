@@ -100,7 +100,7 @@ const driverProfile = () => {
             sm: 700,
             xs: 300,
           },
-          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          // boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
           marginLeft: {
             md: "auto",
             sm: "auto",
@@ -132,14 +132,14 @@ const driverProfile = () => {
               src={avatarPreview}
               sx={{
                 width: {
-                  md: "100px",
-                  sm: "100px",
-                  xs: "100px",
+                  md: "200px",
+                  sm: "200px",
+                  xs: "200px",
                 },
                 height: {
-                  md: "100px",
-                  sm: "100px",
-                  xs: "100px",
+                  md: "200px",
+                  sm: "200px",
+                  xs: "200px",
                 },
                 marginLeft: {
                   md: "auto",

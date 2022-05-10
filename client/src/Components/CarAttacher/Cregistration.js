@@ -6,10 +6,33 @@ import { Box } from "@mui/system";
 import theme from "../../theme";
 import Rform from "../TravelAgency/registrationForm";
 import Cregform from "./CregistrationForm";
+import UserNavBar from "../Users/userNavBar";
+import AgencyNavBar from "../TravelAgency/agencyNavBar";
+import NavBar from "../HomePage/navbar/navBar";
+import DriverNavBar from "../Driver/profiles/driverNavbar";
+import AttacherNavBar from "./profiles/attacherNavbar";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cregitration = () => {
+  const { user, isAuth } = useSelector((state) => state.users);
+  const { agency, isAgencyAuth } = useSelector((state) => state.agencyAuth);
+  const { attacher, isAttacheryAuth } = useSelector(
+    (state) => state.attacherAuth
+  );
+  const { isDriverAuth } = useSelector((state) => state.driverAuth);
   return (
     <>
+      {isAuth === true && user.activated === true ? (
+        <UserNavBar />
+      ) : isAgencyAuth === true && agency.isAgencyActivated === true ? (
+        <AgencyNavBar />
+      ) : isDriverAuth === true ? (
+        <DriverNavBar />
+      ) : isAttacheryAuth === true && attacher.isAttacherActivated === true ? (
+        <AttacherNavBar />
+      ) : (
+        <NavBar />
+      )}
       <ThemeProvider theme={theme}>
         <Box
           sx={{
@@ -18,8 +41,8 @@ const Cregitration = () => {
               sm: "90vw",
             },
             height: {
-              md: "80vh",
-              sm: "80vh",
+              md: "auto",
+              sm: "auto",
             },
             marginLeft: "auto",
             marginRight: "auto",
@@ -34,7 +57,7 @@ const Cregitration = () => {
         >
           <Grid container>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/User.png" className="cimg" />
+              <img src="/images/carAttach2.png" className="cimg" />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>

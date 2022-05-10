@@ -1,76 +1,79 @@
-.regImg{
-width: 30vw;
-height: 55vh;
+.regImg {
+  width: 30vw;
+  height: 55vh;
+  margin: auto;
 }
 
-.aimg{
-    width: 30vw;
-    height: 80vh; 
-    margin-left:10px; 
+.aimg {
+  width: 30vw;
+  height: 80vh;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.cimgs {
+  width: 35vw;
+  height: 70vh;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+.cimg2 {
+  width: 35vw;
+  height: 80vh;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+.fImg {
+  width: 25vw;
+  height: 55vh;
+}
+@media (max-width: 900px) {
+  .regImg {
+    width: 40vw;
+    height: 55vh;
+    margin-top: 40px;
+  }
+  .aimg {
+    width: 40vw;
+    height: 80vh;
+    margin-left: 10px;
     margin-top: 30px;
-}
-
-
-.cimg{
-    width: 35vw;
-    height: 70vh; 
-    margin-left:10px; 
+  }
+  .cimg {
+    width: 45vw;
+    height: 70vh;
+    margin-left: 10px;
     margin-top: 30px;
-}
-.cimg2{
-    width: 35vw;
-    height: 80vh; 
-    margin-left:10px; 
+  }
+  .cimg2 {
+    width: 25vw;
+    height: 80vh;
+    margin-left: 10px;
     margin-top: 30px;
-}
-@media(max-width:900px){
-    .regImg{
-        width: 40vw;
-        height: 55vh;
-        margin-top: 40px;
-        }
-        .aimg{
-            width: 40vw;
-            height: 80vh; 
-            margin-left:10px; 
-            margin-top: 30px;
-        }
-        .cimg{
-            width: 45vw;
-            height: 70vh; 
-            margin-left:10px; 
-            margin-top: 30px;
-        }
-        .cimg2{
-            width: 25vw;
-            height: 80vh; 
-            margin-left:10px; 
-            margin-top: 30px;
-        }
+  }
 }
 
-
-@media(max-width:600px){
-    .regImg{
-        width: 90vw;
-        height: 55vh;
-        }   
-        .aimg{
-            width: 90vw;
-            height: 80vh; 
-            margin-left:10px; 
-            margin-top: 30px;
-        }
-        .cimg{
-            width: 80vw;
-            height: 70vh;
-            margin-left:10px; 
-            margin-top: 30px;
-        }
-        .cimg2{
-            width: 55vw;
-            height: 80vh; 
-            margin-left:10px; 
-            margin-top: 30px;
-        }
+@media (max-width: 600px) {
+  .regImg {
+    width: 90vw;
+    height: 55vh;
+  }
+  .aimg {
+    width: 90vw;
+    height: 80vh;
+    margin-left: 10px;
+    margin-top: 30px;
+  }
+  .cimg {
+    width: 80vw;
+    height: 70vh;
+    margin-left: 10px;
+    margin-top: 30px;
+  }
+  .cimg2 {
+    width: 55vw;
+    height: 80vh;
+    margin-left: 10px;
+    margin-top: 30px;
+  }
 }

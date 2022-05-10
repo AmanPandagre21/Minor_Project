@@ -1,13 +1,12 @@
 import React from "react";
-
-import theme from "../../../theme";
+// import RImg from "../../../Images/forgotPassword.png";
+import theme from "../../../../theme";
 
 import { ThemeProvider } from "@emotion/react";
 import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-
-import EnterEform from "./enterEmailForm";
-const EnterEmail = () => {
+import UpdatePasswordForm from "./updatePasswordForm";
+const UpdatePassword = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -18,8 +17,8 @@ const EnterEmail = () => {
               sm: "70vw",
             },
             height: {
-              md: "50vh",
-              sm: "50vh",
+              md: "60vh",
+              sm: "60vh",
             },
             marginLeft: "auto",
             marginRight: "auto",
@@ -33,13 +32,13 @@ const EnterEmail = () => {
           }}
         >
           <Grid container>
-            <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/forgotPassword.png" className="fImg" />
-            </Grid>
+            {/* <Grid item md={6} sm={6} xs={12} >
+   <img src={RImg} className='fImg' />
+    </Grid> */}
 
-            <Grid item md={6} sm={6} xs={12}>
+            <Grid item md={12} sm={12} xs={12}>
               {/* <Rform/> */}
-              <EnterEform />
+              <UpdatePasswordForm />
             </Grid>
           </Grid>
         </Box>
@@ -47,4 +46,4 @@ const EnterEmail = () => {
     </>
   );
 };
-export default EnterEmail;
+export default UpdatePassword;

@@ -5,9 +5,33 @@ import { Box } from "@mui/system";
 import theme from "../../theme";
 import Rform from "./registrationForm";
 import Aform from "./activationForm";
+import UserNavBar from "../Users/userNavBar";
+import AgencyNavBar from "./agencyNavBar";
+import NavBar from "../HomePage/navbar/navBar";
+import DriverNavBar from "../Driver/profiles/driverNavbar";
+import AttacherNavBar from "../CarAttacher/profiles/attacherNavbar";
+import { useDispatch, useSelector } from "react-redux";
+
 const Activation = () => {
+  const { user, isAuth } = useSelector((state) => state.users);
+  const { agency, isAgencyAuth } = useSelector((state) => state.agencyAuth);
+  const { attacher, isAttacherAuth } = useSelector(
+    (state) => state.attacherAuth
+  );
+  const { isDriverAuth } = useSelector((state) => state.driverAuth);
   return (
     <>
+      {isAuth === true && user.activated === true ? (
+        <UserNavBar />
+      ) : isAgencyAuth === true && agency.isAgencyActivated === true ? (
+        <AgencyNavBar />
+      ) : isDriverAuth === true ? (
+        <DriverNavBar />
+      ) : isAttacherAuth === true && attacher.isAttacherActivated === true ? (
+        <AttacherNavBar />
+      ) : (
+        <NavBar />
+      )}
       <ThemeProvider theme={theme}>
         <Box
           sx={{
@@ -35,7 +59,7 @@ const Activation = () => {
               <Aform />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              <img src="/images/User.png" className="aimg" />
+              <img src="/images/ActivationImg.png" className="aimg" />
             </Grid>
           </Grid>
         </Box>
