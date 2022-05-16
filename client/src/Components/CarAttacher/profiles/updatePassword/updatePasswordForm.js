@@ -13,10 +13,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import theme from "../../../../theme";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  driver_password_update,
+  attacher_password_update,
   update_reset,
-} from "../../../../Slices/DriverSlices/driverProfileSlice";
-import { get_driver_profile } from "../../../../Slices/DriverSlices/driverAuthSlice";
+} from "../../../../Slices/CarAttacherSlices/attacherProfileSlice";
+import { get_attacher_profile } from "../../../../Slices/CarAttacherSlices/attacherAuthSlice";
 
 const Copyright = (props) => {
   return (
@@ -45,13 +45,13 @@ const updatePasswordForm = () => {
 
   const dispatch = useDispatch();
 
-  const { isUpdated, status } = useSelector((state) => state.drivers);
+  const { isUpdated, status } = useSelector((state) => state.attachers);
 
   const { type, message } = status;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(driver_password_update(fdata));
+    dispatch(attacher_password_update(fdata));
   };
 
   const handleChange = (e) => {
@@ -72,7 +72,7 @@ const updatePasswordForm = () => {
     if (isUpdated) {
       toast.success(message);
 
-      dispatch(get_driver_profile());
+      dispatch(get_attacher_profile());
 
       dispatch(update_reset());
 

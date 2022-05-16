@@ -38,11 +38,11 @@ router.route("/profile/:id").get(showAgencyProfile);
 
 router.route("/profile/update").put(agencyMiddleware, updateProfile);
 
-router.route("/travel_agencies").get(showAllTravelAgencies);
+router.route("/travelagencies").get(showAllTravelAgencies);
 
 router.route("/activate-agency").put(agencyMiddleware, activateTravelAgencies);
 
-router.route("/change_password").get(agencyMiddleware, updatePassword);
+router.route("/change_password").put(agencyMiddleware, updatePassword);
 
 router.route("/forgot-password").post(forgotPassword);
 

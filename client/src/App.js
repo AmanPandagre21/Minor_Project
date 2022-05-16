@@ -21,7 +21,6 @@ import Dregistration from "./Components/Driver/Dregistration";
 import Login from "./Components/TravelAgency/login";
 import Registration from "./Components/TravelAgency/registration";
 import TaActivation from "./Components/TravelAgency/taActivation";
-import AgencyProfile from "./Components/TravelAgency/agencyProfile";
 import DriverDrawer from "./Components/Driver/profiles/drawer";
 import AttacherDrawer from "./Components/CarAttacher/profiles/drawer";
 import { get_driver_profile } from "./Slices/DriverSlices/driverAuthSlice";
@@ -36,6 +35,7 @@ import { get_attacher_profile } from "./Slices/CarAttacherSlices/attacherAuthSli
 import Profile from "./Components/CarAttacher/profile";
 import Header from "./Components/HomePage/header";
 import AgencyDrawer from "./Components/TravelAgency/agencyPage/drawer";
+import Booking from "./Components/Bookings/booking";
 
 function App() {
   const { isAuth, user } = useSelector((state) => state.users);
@@ -98,11 +98,19 @@ function App() {
             }
           ></Route>
           <Route exact path="/drivers" element={<Drivers />}></Route>
-          <Route path="/agencies" element={<TravelAgency />}></Route>
-          <Route path="/agencies/:keyword" element={<TravelAgency />}></Route>
           <Route
             exact
-            path="/agencies/details/:id"
+            path="/travel_agencies"
+            travel_agencies
+            element={<TravelAgency />}
+          ></Route>
+          <Route
+            path="/travel_agencies/:state"
+            element={<TravelAgency />}
+          ></Route>
+          <Route
+            exact
+            path="/travel_agencies/details/:id"
             element={<TADetails />}
           ></Route>
           {/* agency Routes */}
@@ -203,6 +211,12 @@ function App() {
             exact
             path="/attacher/password/reset/:token"
             element={<ResetAttacherPassword />}
+          ></Route>
+          {/* booking */}
+          <Route
+            exact
+            path="/travel_agencies/booking/:carid"
+            element={<Booking />}
           ></Route>
         </Routes>
       </BrowserRouter>

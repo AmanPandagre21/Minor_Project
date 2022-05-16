@@ -10,6 +10,7 @@ import {
   resetMessage,
   update_reset,
 } from "../../../../Slices/TravelAgenciesSlices/agencyProfileSlice";
+import { get_agency_profile } from "../../../../Slices/TravelAgenciesSlices/travelAuthSlice";
 
 const Cars = () => {
   const { agency } = useSelector((state) => state.agencyAuth);
@@ -29,6 +30,8 @@ const Cars = () => {
       dispatch(update_reset());
       dispatch(resetMessage());
     }
+
+    dispatch(get_agency_profile());
   }, [dispatch, toast, setMessage]);
 
   return (

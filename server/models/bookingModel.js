@@ -7,9 +7,8 @@ const BookingSchema = new mongoose.Schema(
     pickupDate: { type: Date },
     dropDate: { type: Date },
     pickupTime: Date,
-    dropTime: Date,
     tripType: { type: String },
-    taxPrice: { type: Number, default: 800 },
+    taxPrice: { type: Number, default: 1000 },
     totalPrice: { type: Number, required: true },
     paymentInfo: {
       transactionId: {

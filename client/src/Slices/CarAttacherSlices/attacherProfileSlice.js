@@ -92,7 +92,7 @@ export function attacher_password_update(formData) {
     try {
       const { oldPassword, newPassword, confirmPassword } = formData;
       const { data } = await api.put("/car/change-password", {
-        oldPassword: oldPassword,
+        oldpassword: oldPassword,
         password: newPassword,
         confirmpassword: confirmPassword,
       });

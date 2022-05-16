@@ -30,7 +30,7 @@ exports.sendOTP = async (req, res, next) => {
 
   // send OTP
   try {
-    await sendOtp(phone, otp);
+    // await sendOtp(phone, otp);
 
     res.status(200).json({
       success: true,

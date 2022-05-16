@@ -67,15 +67,15 @@ const TravelAgenciesSchema = new mongoose.Schema(
             url: String,
           },
         },
-        driver: {
-          driverName: String,
-          email: String,
-          phone: Number,
-          driverAvatar: {
-            public_id: String,
-            url: String,
-          },
-        },
+        // driver: {
+        //   driverName: String,
+        //   email: String,
+        //   phone: Number,
+        //   driverAvatar: {
+        //     public_id: String,
+        //     url: String,
+        //   },
+        // },
       },
     ],
 

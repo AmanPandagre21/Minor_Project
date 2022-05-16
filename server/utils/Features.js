@@ -6,11 +6,11 @@ class Features {
 
   // filter
   filter() {
-    let queryCopy = { ...this.queryStr };
+    const queryCopy = { ...this.queryStr };
 
-    let remove = ["page", "limit"];
+    const removeFields = ["page", "limit"];
 
-    remove.forEach((key) => delete queryCopy[key]);
+    removeFields.forEach((key) => delete queryCopy[key]);
 
     let querystr = JSON.stringify(queryCopy);
     querystr = querystr.replace(/\b(gt|gte|lt|lte)\b/g, (ele) => `$${ele}`);

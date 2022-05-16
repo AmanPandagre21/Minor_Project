@@ -21,6 +21,7 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ limt: "50mb", extended: true }));
 app.use(fileUpload());
+app.use(express.static(__dirname));
 
 //  import routes
 const user = require("./routes/userRoute");

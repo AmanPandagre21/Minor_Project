@@ -108,7 +108,7 @@ const TCard = ({ agency }) => {
                 {agency.city} ,({agency.state})
               </Typography>
               <Link
-                to={`/agencies/details/${agency._id}`}
+                to={`/travel_agencies/details/${agency._id}`}
                 sx={{ TextDecoration: "none" }}
               >
                 <Button

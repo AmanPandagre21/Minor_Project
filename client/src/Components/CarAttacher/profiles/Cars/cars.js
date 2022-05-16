@@ -10,6 +10,7 @@ import {
   delete_attacher_car,
   update_reset,
 } from "../../../../Slices/CarAttacherSlices/attacherProfileSlice";
+import { get_attacher_profile } from "../../../../Slices/CarAttacherSlices/attacherAuthSlice";
 
 const Cars = () => {
   const { attacher } = useSelector((state) => state.attacherAuth);
@@ -28,6 +29,7 @@ const Cars = () => {
       toast.success(setMessage);
       dispatch(update_reset());
     }
+    dispatch(get_attacher_profile());
   }, [dispatch, toast, setMessage]);
 
   return (

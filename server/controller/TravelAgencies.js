@@ -158,7 +158,7 @@ exports.showAgencyProfile = async (req, res, next) => {
 /* -------  Show All travel agencies ---------*/
 exports.showAllTravelAgencies = async (req, res, next) => {
   try {
-    const resultperpage = 25;
+    const resultperpage = 15;
 
     const agencyFeatures = new Features(TravelAgency.find(), req.query)
       .filter()
@@ -226,7 +226,7 @@ exports.updatePassword = async (req, res, next) => {
   try {
     const { oldpassword, password, confirmpassword } = req.body;
 
-    if (!oldpassword || !password || !confirmpassword) {
+    if (!oldpassword && !password && !confirmpassword) {
       return next(new ErrorHandler("All fields are required", 400));
     }
 
@@ -237,6 +237,9 @@ exports.updatePassword = async (req, res, next) => {
     if (!agency) {
       return next(new ErrorHandler("Travel Agency not found", 404));
     }
+
+    // console.log(oldpassword);
+    // console.log(agency.password);
 
     const check = await compareHashpassword(agency.password, oldpassword);
 
@@ -568,9 +571,10 @@ exports.createAgencyReview = async (req, res, next) => {
 
   const review = {
     user: req.user._id,
-    name: req.user.name,
+    name: req.user.name.trim(),
     rating: Number(rating),
   };
+
   try {
     const agency = await TravelAgency.findById(agencyId);
 

@@ -227,13 +227,13 @@ exports.updatePassword = async (req, res, next) => {
       "+password"
     );
 
-    const { oldPassword, password, confirmpassword } = req.body;
+    const { oldpassword, password, confirmpassword } = req.body;
 
-    if (!oldPassword && !password && !confirmpassword) {
+    if (!oldpassword && !password && !confirmpassword) {
       return next(new ErrorHandler("All fields are required", 400));
     }
 
-    const isMatched = await compareHashpassword(attacher.password, oldPassword);
+    const isMatched = await compareHashpassword(attacher.password, oldpassword);
 
     if (!isMatched) {
       return next(new ErrorHandler("Current Password is not Correct", 400));

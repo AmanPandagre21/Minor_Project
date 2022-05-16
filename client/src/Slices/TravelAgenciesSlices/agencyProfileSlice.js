@@ -81,11 +81,17 @@ export const {
 export default agencyProfileSlice.reducer;
 
 // get all agencies
-export function get_all_agencies_profile(keyword = "", ratings = 0) {
+export function get_all_agencies_profile(state = "", ratings = 0) {
   return async function getAllAgenciesProfileThunk(dispatch, getState) {
     dispatch(setStatus({ type: STATUES.LOADING, message: "Loading" }));
     try {
-      const { data } = await api.get(`/agency/travel_agencies`);
+      let url = `/agency/travelagencies?ratings[gte]=${ratings}`;
+
+      if (state !== "") {
+        url = `/agency/travelagencies?ratings[gte]=${ratings}&state=${state}`;
+      }
+      const { data } = await api.get(url);
+
       dispatch(getALlAgencies(data.agencyDetails));
       dispatch(setStatus({ type: STATUES.IDLE, message: "Agency Profiles" }));
     } catch (error) {
@@ -101,8 +107,8 @@ export function agency_password_update(formData) {
     dispatch(setStatus({ type: STATUES.LOADING, message: "Loading" }));
     try {
       const { oldPassword, newPassword, confirmPassword } = formData;
-      const { data } = await api.put("/agency/change-password", {
-        oldPassword: oldPassword,
+      const { data } = await api.put("/agency/change_password", {
+        oldpassword: oldPassword,
         password: newPassword,
         confirmpassword: confirmPassword,
       });

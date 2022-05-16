@@ -49,7 +49,7 @@ const NavBar = () => {
     navigate("/");
   };
   const agency = () => {
-    navigate("/agencies");
+    navigate("/travel_agencies");
   };
   //   const driver = () => {
   //     navigate("/drivers");

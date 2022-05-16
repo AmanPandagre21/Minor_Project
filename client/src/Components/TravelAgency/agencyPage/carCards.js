@@ -7,7 +7,7 @@ import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
 import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link } from "react-router-dom";
-const CarCard = ({ cars }) => {
+const CarCard = ({ cars, agencyid }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -42,11 +42,11 @@ const CarCard = ({ cars }) => {
               textAlign: "center",
             }}
           >
-            {cars && cars.carName}
+            {cars && cars.cars.carName}
           </Typography>
           <Avatar
             alt="Remy Sharp"
-            src={cars && cars.carImage.url}
+            src={cars && cars.cars.carImage.url}
             sx={{
               width: {
                 md: "130px",
@@ -89,9 +89,9 @@ const CarCard = ({ cars }) => {
                 //   marginTop:1
               }}
             >
-              {cars && cars.carType}|{" "}
-              {cars && cars.ac === true ? "AC" : "Non-AC"} |{" "}
-              {cars && cars.seats}
+              {cars && cars.cars.carType}|{" "}
+              {cars && cars.cars.ac === true ? "AC" : "Non-AC"} |{" "}
+              {cars && cars.cars.seats}
               Seats
             </Typography>
             <Typography
@@ -131,9 +131,13 @@ const CarCard = ({ cars }) => {
                 //   marginTop:1
               }}
             >
-              {cars && cars.fuelType}
+              {cars && cars.cars.fuelType}
             </Typography>
-            <Link to="">
+            <Link
+              to={`/travel_agencies/booking/${
+                cars && cars._id.toString()
+              }?agencyid=${agencyid}`}
+            >
               <Button
                 variant="contained"
                 color="error"

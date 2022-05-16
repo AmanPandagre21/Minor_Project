@@ -92,7 +92,7 @@ const NavBar = () => {
                   label="Travel Agencies"
                   sx={{ fontWeight: "700", color: "white" }}
                   onClick={() => {
-                    navigate("/agencies");
+                    navigate("/travel_agencies");
                   }}
                 />
                 navigate("/drivers")

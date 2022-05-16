@@ -17,9 +17,10 @@ import {
 const CarCard = ({ cars }) => {
   const dispatch = useDispatch();
 
-  const { setMessage, isUpdated, status } =
-    useSelector();
-    // (state) => state.agencies
+  const { setMessage, isUpdated, status } = useSelector(
+    (state) => state.agencies
+  );
+  // (state) => state.agencies
 
   const deleteHandler = (id) => {
     // console.log(id);
